@@ -28,7 +28,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         if (ParseUser.getCurrentUser() != null) {
-            goMainActivity();
+            //goMainActivity();
+            goFeedActivity();
         }
 
         // Finding the views from the layout
@@ -45,6 +46,13 @@ public class LoginActivity extends AppCompatActivity {
                 loginUser(username, password); // Attempting to log in the user
             }
         });
+    }
+
+    private void goFeedActivity() {
+        Log.i(TAG, "Entered goFeedActivity");
+        Intent i = new Intent(this, FeedActivity.class);
+        startActivity(i);
+        finish();
     }
 
     private void loginUser(String username, String password) {

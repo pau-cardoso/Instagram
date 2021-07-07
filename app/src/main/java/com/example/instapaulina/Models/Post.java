@@ -1,4 +1,4 @@
-package com.example.instapaulina;
+package com.example.instapaulina.Models;
 
 import com.parse.ParseClassName;
 import com.parse.ParseFile;
