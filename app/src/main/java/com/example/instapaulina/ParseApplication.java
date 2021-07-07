@@ -3,6 +3,7 @@ package com.example.instapaulina;
 import android.app.Application;
 
 import com.parse.Parse;
+import com.parse.ParseObject;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -11,7 +12,8 @@ public class ParseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
+        // Register your parse models
+        ParseObject.registerSubclass(Post.class);
         // set applicationId, and server server based on the values in the back4app settings.
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("q2WRDBEuE2gLsHUkXTd8xHSSpPS47kfDBQOMgwD2")

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Insta Paulina</string>
+    <string name="submit">Submit</string>
+    <string name="logout">Logout</string>
 </resources>
