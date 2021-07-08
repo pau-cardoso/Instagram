@@ -7,7 +7,7 @@
     android:paddingBottom="10dp">
 
     <ImageView
-        android:id="@+id/ivPost"
+        android:id="@+id/ivPostD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/divider"
@@ -18,7 +18,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/ivProfileImage"
+        android:id="@+id/ivProfileImageD"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentStart="true"
@@ -29,13 +29,13 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/tvUsername"
+        android:id="@+id/tvUsernameD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:layout_toEndOf="@+id/ivProfileImage"
+        android:layout_toEndOf="@+id/ivProfileImageD"
         android:hint="_paucardoso_"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -46,17 +46,17 @@
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@+id/ivProfileImage"
+        android:layout_below="@+id/ivProfileImageD"
         android:layout_alignParentStart="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="5dp"
         android:background="?android:attr/listDivider" />
 
     <ImageButton
-        android:id="@+id/ibLike"
+        android:id="@+id/ibLikeD"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_below="@+id/ivPost"
+        android:layout_below="@+id/ivPostD"
         android:layout_alignParentStart="true"
         android:layout_marginStart="12dp"
         android:layout_marginTop="10dp"
@@ -65,48 +65,48 @@
         app:srcCompat="@drawable/ufi_heart" />
 
     <ImageButton
-        android:id="@+id/ibComment"
+        android:id="@+id/ibCommentD"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_below="@+id/ivPost"
+        android:layout_below="@+id/ivPostD"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:layout_toEndOf="@+id/ibLike"
+        android:layout_toEndOf="@+id/ibLikeD"
         android:background="#00FFFFFF"
         android:scaleType="centerInside"
         app:srcCompat="@drawable/ufi_comment" />
 
     <ImageButton
-        android:id="@+id/ibSend"
+        android:id="@+id/ibSendD"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_below="@+id/ivPost"
+        android:layout_below="@+id/ivPostD"
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
-        android:layout_toEndOf="@+id/ibComment"
+        android:layout_toEndOf="@+id/ibCommentD"
         android:background="#00FFFFFF"
         android:scaleType="centerInside"
         app:srcCompat="@drawable/ufi_new_direct" />
 
     <ImageButton
-        android:id="@+id/ibSave"
+        android:id="@+id/ibSaveD"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_below="@+id/ivPost"
+        android:layout_below="@+id/ivPostD"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="251dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="12dp"
-        android:layout_toEndOf="@+id/ibSend"
+        android:layout_toEndOf="@+id/ibSendD"
         android:background="#00FFFFFF"
         android:scaleType="centerInside"
         app:srcCompat="@drawable/ufi_save" />
 
     <TextView
-        android:id="@+id/tvDescription"
+        android:id="@+id/tvDescriptionD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvUsernameBottom2"
+        android:layout_below="@+id/tvUsernameD"
         android:layout_alignParentStart="true"
         android:layout_marginStart="12dp"
         android:layout_marginTop="3dp"
@@ -114,10 +114,10 @@
         android:textSize="12sp" />
 
     <TextView
-        android:id="@+id/tvUsernameBottom2"
+        android:id="@+id/tvUsernameD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ibLike"
+        android:layout_below="@+id/ibLikeD"
         android:layout_alignParentStart="true"
         android:layout_marginStart="12dp"
         android:layout_marginTop="10dp"

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp">
+
+  <ImageView
+      android:id="@+id/ivPostD"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/divider"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentEnd="true"
+      android:layout_marginStart="0dp"
+      android:layout_marginTop="0dp"
+      tools:srcCompat="@tools:sample/avatars" />
+
+  <ImageView
+      android:id="@+id/ivProfileImageD"
+      android:layout_width="30dp"
+      android:layout_height="30dp"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentTop="true"
+      android:layout_alignParentBottom="false"
+      android:layout_marginStart="5dp"
+      android:layout_marginTop="5dp"
+      tools:srcCompat="@tools:sample/avatars" />
+
+  <TextView
+      android:id="@+id/tvUsernameD"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentTop="true"
+      android:layout_marginStart="10dp"
+      android:layout_marginTop="10dp"
+      android:layout_toEndOf="@+id/ivProfileImageD"
+      android:hint="_paucardoso_"
+      android:text="TextView"
+      android:textAppearance="@style/TextAppearance.AppCompat.Large"
+      android:textSize="14sp"
+      android:textStyle="bold" />
+
+  <View
+      android:id="@+id/divider"
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:layout_below="@+id/ivProfileImageD"
+      android:layout_alignParentStart="true"
+      android:layout_marginStart="0dp"
+      android:layout_marginTop="5dp"
+      android:background="?android:attr/listDivider" />
+
+  <ImageButton
+      android:id="@+id/ibLikeD"
+      android:layout_width="25dp"
+      android:layout_height="25dp"
+      android:layout_below="@+id/ivPostD"
+      android:layout_alignParentStart="true"
+      android:layout_marginStart="12dp"
+      android:layout_marginTop="10dp"
+      android:background="#00FFFFFF"
+      android:scaleType="centerInside"
+      app:srcCompat="@drawable/ufi_heart" />
+
+  <ImageButton
+      android:id="@+id/ibCommentD"
+      android:layout_width="25dp"
+      android:layout_height="25dp"
+      android:layout_below="@+id/ivPostD"
+      android:layout_marginStart="20dp"
+      android:layout_marginTop="10dp"
+      android:layout_toEndOf="@+id/ibLikeD"
+      android:background="#00FFFFFF"
+      android:scaleType="centerInside"
+      app:srcCompat="@drawable/ufi_comment" />
+
+  <ImageButton
+      android:id="@+id/ibSendD"
+      android:layout_width="30dp"
+      android:layout_height="30dp"
+      android:layout_below="@+id/ivPostD"
+      android:layout_marginStart="20dp"
+      android:layout_marginTop="8dp"
+      android:layout_toEndOf="@+id/ibCommentD"
+      android:background="#00FFFFFF"
+      android:scaleType="centerInside"
+      app:srcCompat="@drawable/ufi_new_direct" />
+
+  <ImageButton
+      android:id="@+id/ibSaveD"
+      android:layout_width="25dp"
+      android:layout_height="25dp"
+      android:layout_below="@+id/ivPostD"
+      android:layout_alignParentEnd="true"
+      android:layout_marginStart="251dp"
+      android:layout_marginTop="10dp"
+      android:layout_marginEnd="12dp"
+      android:layout_toEndOf="@+id/ibSendD"
+      android:background="#00FFFFFF"
+      android:scaleType="centerInside"
+      app:srcCompat="@drawable/ufi_save" />
+
+  <TextView
+      android:id="@+id/tvDescriptionD"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/ibLikeD"
+      android:layout_alignParentBottom="false"
+      android:layout_marginStart="14dp"
+      android:layout_marginTop="10dp"
+      android:layout_toEndOf="@+id/tvUsernameBottom"
+      android:text="TextView"
+      android:textSize="14sp" />
+
+  <TextView
+      android:id="@+id/tvUsernameBottom"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/ibLikeD"
+      android:layout_alignParentStart="true"
+      android:layout_marginStart="12dp"
+      android:layout_marginTop="10dp"
+      android:text="TextView"
+      android:textSize="14sp"
+      android:textStyle="bold" />
+
+  <TextView
+      android:id="@+id/tvCreatedAt"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/tvDescriptionD"
+      android:layout_alignParentBottom="false"
+      android:layout_marginStart="12dp"
+      android:layout_marginTop="5dp"
+      android:layout_marginBottom="10dp"
+      android:text="TextView"
+      android:textSize="10sp" />
+</RelativeLayout>
