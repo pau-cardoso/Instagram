@@ -82,10 +82,20 @@ public class MainActivity extends AppCompatActivity {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.i(TAG, "onClick logout button");
                 ParseUser.logOut();
                 ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
+                Log.i(TAG, "currentUser: " + currentUser);
+                goLoginActivity();
             }
         });
+    }
+
+    private void goLoginActivity() {
+        Log.i(TAG, "Entered goLoginActivity");
+        Intent i = new Intent(this, LoginActivity.class);
+        startActivity(i);
+        finish();
     }
 
     private void launchCamera() {
