@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +21,7 @@ public class FeedActivity extends AppCompatActivity {
 
     public static final String TAG = "FeedActivity";
 
+    private SwipeRefreshLayout swipeContainer;
     Toolbar tbFeed;
     RecyclerView rvPosts;
     PostsAdapter adapter;
@@ -30,8 +32,18 @@ public class FeedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
 
+        // Finding view components
         tbFeed = findViewById(R.id.tbFeed);
         rvPosts = findViewById(R.id.rvPosts);
+        swipeContainer = findViewById(R.id.swipeContainer);
+
+        // Setting a listener for when user swipes for refreshing
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                queryPosts();
+            }
+        });
 
         // initialize the array that will hold posts and create a PostsAdapter
         allPosts = new ArrayList<>();
@@ -71,7 +83,10 @@ public class FeedActivity extends AppCompatActivity {
 
                 // save received posts to list and notify adapter of new data
                 allPosts.addAll(posts);
+                adapter.clear();
+                adapter.addAll(posts);
                 adapter.notifyDataSetChanged();
+                swipeContainer.setRefreshing(false);
             }
         });
     }
