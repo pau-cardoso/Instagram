@@ -1,15 +1,24 @@
 package com.example.instapaulina;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.example.instapaulina.Fragments.ComposeFragment;
+import com.example.instapaulina.Fragments.FeedFragment;
+import com.example.instapaulina.Fragments.ProfileFragment;
 import com.example.instapaulina.Models.Post;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
@@ -21,73 +30,42 @@ public class FeedActivity extends AppCompatActivity {
 
     public static final String TAG = "FeedActivity";
 
-    private SwipeRefreshLayout swipeContainer;
-    Toolbar tbFeed;
-    RecyclerView rvPosts;
-    PostsAdapter adapter;
-    List<Post> allPosts;
+    BottomNavigationView bottomNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
+        final FragmentManager fragmentManager = getSupportFragmentManager();
 
-        // Finding view components
-        tbFeed = findViewById(R.id.tbFeed);
-        rvPosts = findViewById(R.id.rvPosts);
-        swipeContainer = findViewById(R.id.swipeContainer);
+        bottomNavigation = findViewById(R.id.bottomNavigation);
 
-        // Setting a listener for when user swipes for refreshing
-        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                queryPosts();
-            }
-        });
-
-        // initialize the array that will hold posts and create a PostsAdapter
-        allPosts = new ArrayList<>();
-        adapter = new PostsAdapter(this, allPosts);
-
-        // set the adapter on the recycler view
-        rvPosts.setAdapter(adapter);
-        // set the layout manager on the recycler view
-        rvPosts.setLayoutManager(new LinearLayoutManager(this));
-        // query posts from Parstagram
-        queryPosts();
-    }
-
-    private void queryPosts() {
-        // specify what type of data we want to query - Post.class
-        ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
-        // include data referred by user key
-        query.include(Post.KEY_USER);
-        // limit query to latest 20 items
-        query.setLimit(20);
-        // order posts by creation date (newest first)
-        query.addDescendingOrder("createdAt");
-        // start an asynchronous call for posts
-        query.findInBackground(new FindCallback<Post>() {
-            @Override
-            public void done(List<Post> posts, ParseException e) {
-                // check for errors
-                if (e != null) {
-                    Log.e(TAG, "Issue with getting posts", e);
-                    return;
-                }
-
-                // for debugging purposes let's print every post description to logcat
-                for (Post post : posts) {
-                    Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername());
-                }
-
-                // save received posts to list and notify adapter of new data
-                allPosts.addAll(posts);
-                adapter.clear();
-                adapter.addAll(posts);
-                adapter.notifyDataSetChanged();
-                swipeContainer.setRefreshing(false);
-            }
-        });
+        // handle navigation selection
+        bottomNavigation.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        Fragment fragment;
+                        switch (item.getItemId()) {
+                            case R.id.action_home:
+                                Toast.makeText(FeedActivity.this, "Home!", Toast.LENGTH_SHORT).show();
+                                fragment = new FeedFragment();
+                                break;
+                            case R.id.action_compose:
+                                Toast.makeText(FeedActivity.this, "New post!", Toast.LENGTH_SHORT).show();
+                                fragment = new ComposeFragment();
+                                break;
+                            case R.id.action_profile:
+                            default:
+                                Toast.makeText(FeedActivity.this, "Profile!", Toast.LENGTH_SHORT).show();
+                                fragment = new ProfileFragment();
+                                break;
+                        }
+                        fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
+                        return true;
+                    }
+                });
+        // Set default selection
+        bottomNavigation.setSelectedItemId(R.id.action_home);
     }
 }

@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.LogInCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
@@ -86,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void goMainActivity() {
         Log.i(TAG, "Entered goMainActivity");
-        Intent i = new Intent(this, MainActivity.class);
+        Intent i = new Intent(this, ComposeActivity.class);
         startActivity(i);
         finish();
     }
